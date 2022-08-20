@@ -46,7 +46,7 @@
   font-size: 4vw;
   padding: 2vw;
   border-radius: 10px;
-  bottom: 4vw;
+  bottom: 8vh;
   background: #fff;
   color: black;
   border: 3px dashed rgb(95, 58, 6);
@@ -58,7 +58,7 @@
   font-size: 4vw;
   padding: 2vw;
   border-radius: 10px;
-  top: 4vw;
+  top: 8vh;
   background: #fff;
   color: black;
   border: 3px dashed rgb(95, 58, 6);
