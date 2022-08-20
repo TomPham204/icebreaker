@@ -10,12 +10,20 @@ export default function Game() {
   const [questionCount, setQuestionCount] = useState(0);
   const [questionRotate, setQuestionRotate] = useState(false);
   const [isMyTurn, setIsMyTurn] = useState(true);
+  const [answeredQuestions, setAnsweredQuestions] = useState([]);
 
   useEffect(() => {
     let randomNumber = Math.floor(
       Math.random() * (primaryQuestions.length + 1)
     );
+    while (answeredQuestions.includes(randomNumber)) {
+      let randomNumber = Math.floor(
+        Math.random() * (primaryQuestions.length + 1)
+      );
+    }
     setCurrentQuestion(primaryQuestions[randomNumber]);
+    setAnsweredQuestions([...answeredQuestions, randomNumber]);
+    console.log(answeredQuestions);
     setQuestionCount(questionCount + 1);
   }, [isMyTurn]);
 
@@ -47,9 +55,9 @@ export default function Game() {
 }
 
 const primaryQuestions = [
-  "Chia sẻ một mẹo nhỏ để cải thiện năng suất của riêng bạn?",
+  "Một mẹo nhỏ để cải thiện năng suất của riêng bạn?",
   "Đồ uống yêu thích của bạn là gì?",
-  "Một lời khuyên hoặc bài học tâm đắc nhất bạn được tiền bối chia sẻ cho.",
+  "Một lời khuyên hoặc bài học tâm đắc nhất bạn được người khác chia sẻ?",
   "Nếu được học thêm 1 kĩ năng bất kì thì bạn sẽ chọn kĩ năng nào?",
   "Kể tên 3 bài hát bạn tự tin có thể karaoke cháy hết mình.",
   "Kể tên 2 món ăn bạn thích nhất.",
