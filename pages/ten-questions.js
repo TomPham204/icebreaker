@@ -7,6 +7,7 @@ export default function Game(props) {
   const [questionRotate, setQuestionRotate] = useState(false);
   const [isMyTurn, setIsMyTurn] = useState(true);
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [showNextButton, setShowNextButton] = useState(true);
 
   useEffect(() => {
     setQuestionList(props.primaryQuestions);
@@ -15,15 +16,14 @@ export default function Game(props) {
   function handleClick() {
     if (answeredQuestions.length === questionList.length) {
       setCurrentQuestion("Hết rùi :3");
+      setShowNextButton(false);
       return;
     }
     let randomNumber = 0;
     while (answeredQuestions.includes(randomNumber)) {
       randomNumber = Math.floor(Math.random() * questionList.length);
     }
-    console.log("chosen number ", randomNumber);
     setCurrentQuestion(questionList[randomNumber]);
-    console.log("set question number ", randomNumber);
     setAnsweredQuestions([...answeredQuestions, randomNumber]);
     setIsMyTurn(!isMyTurn);
     setQuestionRotate(!isMyTurn);
@@ -39,13 +39,14 @@ export default function Game(props) {
         >
           {currentQuestion}
         </button>
-
-        <button
-          onClick={handleClick}
-          className={isMyTurn ? styles.done : styles.donerotate}
-        >
-          Next question
-        </button>
+        {showNextButton && (
+          <button
+            onClick={handleClick}
+            className={isMyTurn ? styles.done : styles.donerotate}
+          >
+            Next question
+          </button>
+        )}
       </main>
     </div>
   );
