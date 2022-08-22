@@ -1,30 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/TenQuestions.module.css";
 
-export default function Game() {
-  const [currentQuestion, setCurrentQuestion] = useState(
-    primaryQuestions[Math.floor(Math.random() * (primaryQuestions.length + 1))]
-  );
-  const [questionCount, setQuestionCount] = useState(0);
+export default function Game(props) {
+  const [currentQuestion, setCurrentQuestion] = useState();
+  const [questionList, setQuestionList] = useState([]);
   const [questionRotate, setQuestionRotate] = useState(false);
   const [isMyTurn, setIsMyTurn] = useState(true);
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
 
+  useEffect(() => {
+    setQuestionList(props.primaryQuestions);
+  }, [props.primaryQuestions]);
+
   function handleClick() {
+    if (answeredQuestions.length === questionList.length) {
+      setCurrentQuestion("Hết rùi :3");
+      return;
+    }
     let randomNumber = 0;
     while (answeredQuestions.includes(randomNumber)) {
-      randomNumber = Math.floor(Math.random() * (primaryQuestions.length + 1));
+      randomNumber = Math.floor(Math.random() * questionList.length);
     }
-    setCurrentQuestion(primaryQuestions[randomNumber]);
+    console.log("chosen number ", randomNumber);
+    setCurrentQuestion(questionList[randomNumber]);
+    console.log("set question number ", randomNumber);
     setAnsweredQuestions([...answeredQuestions, randomNumber]);
-    setQuestionCount(questionCount + 1);
     setIsMyTurn(!isMyTurn);
     setQuestionRotate(!isMyTurn);
   }
 
   return (
     <div className={styles.container}>
-      <h4 className={styles.count}>Count: {questionCount}</h4>
+      <h4 className={styles.count}>Count: {answeredQuestions.length}</h4>
       <main className={styles.main}>
         <button
           onClick={() => setQuestionRotate(!questionRotate)}
@@ -42,6 +49,12 @@ export default function Game() {
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: { primaryQuestions },
+  };
 }
 
 const primaryQuestions = [

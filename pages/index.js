@@ -6,11 +6,11 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true);
-  const [showChoices, setShowChoices] = useState(false);
+  const [showChoices, setShowChoices] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => (setShowWelcome(false), setShowChoices(true)), 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => (setShowWelcome(false), setShowChoices(true)), 3000);
+  // }, []);
 
   return (
     <div className={styles.container}>
@@ -21,11 +21,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {showWelcome && (
+        {/* {showWelcome && (
           <h1 className={styles.title}>
             Welcome to Online Icebreaker, designed by Tom Pham.
           </h1>
-        )}
+        )} */}
         {showChoices && (
           <div className={styles.wrapper}>
             <Link href="/ten-questions">
