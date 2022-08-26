@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import styles from "../styles/TenQuestions.module.css";
 
 export default function Game(props) {
@@ -39,13 +40,17 @@ export default function Game(props) {
         >
           {currentQuestion}
         </button>
-        {showNextButton && (
+        {showNextButton ? (
           <button
             onClick={handleClick}
             className={isMyTurn ? styles.done : styles.donerotate}
           >
             Next question
           </button>
+        ) : (
+          <Link href="/">
+            <a className={styles.link}>Back to Home</a>
+          </Link>
         )}
       </main>
     </div>
