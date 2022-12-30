@@ -67,10 +67,11 @@ export async function getStaticProps() {
 
 const primaryQuestions = [
 	"Đồ uống yêu thích của bạn là gì?",
-	"Nếu được học thêm 1 kĩ năng thì bạn sẽ chọn kĩ năng nào?",
+	"Nếu được học thêm 1 kĩ năng bất kì thì bạn sẽ chọn kĩ năng nào?",
 	"Kể tên 3 bài hát mà bạn tự tin hát karaoke được.",
 	"Kể tên 3 món ăn mà bạn thích nhất.",
-	"Ba đặc điểm tính cách ở người khác được bạn đánh giá cao?",
+	"Bạn thường làm gì vào thời gian rảnh?",
+	"Ba tính cách của người khác phái mà bạn thích nhất.",
 	"Nếu có tiền thì bạn sẽ đi du lịch ở đâu?",
 	"Chia sẻ một điều xảy ra gần đây làm bạn vui?",
 	"Bạn thích tự nấu ăn hay đi ăn ngoài hơn?",
@@ -81,8 +82,8 @@ const primaryQuestions = [
 	"Nếu có thể hóa thân thành 1 con vật, bạn muốn làm con vật nào?",
 	"Nếu có một điều ước thì bạn sẽ dành điều ước đó cho ai?",
 	"Ước mơ lúc nhỏ của bạn là gì?",
-	"Tháng yêu thích của bạn là tháng mấy?",
-	"Bạn thích vị kem nào nhất?",
-	"Chia sẻ về một nỗi sợ của bạn.",
-	"Mọi người thường gọi bạn với biệt danh gì?",
+	"Bạn thích mùa nào nhất trong một năm?",
+	"Bạn thích loại thức uống nào nhất?",
+	"Bạn có sợ điều gì không?",
+	"Biệt danh bạn thích được gọi nhất là gì?",
 ];
