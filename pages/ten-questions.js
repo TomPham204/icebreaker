@@ -84,6 +84,6 @@ const primaryQuestions = [
 	"Ước mơ lúc nhỏ của bạn là gì?",
 	"Bạn thích mùa nào nhất trong một năm?",
 	"Bạn thích loại thức uống nào nhất?",
-	"Bạn có sợ điều gì không?",
+	"Kể tên một điều có thể làm bạn lo lắng.",
 	"Biệt danh bạn thích được gọi nhất là gì?",
 ];
