@@ -1,68 +1,68 @@
 .container {
-  padding: 0;
-  background-color: #fff;
+	padding: 0;
+	background-color: rgb(255, 241, 205);
 }
 
 .main {
-  min-height: 100vh;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  position: relative;
+	min-height: 100vh;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000;
+	position: relative;
 }
 
 .title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-  height: 100vh;
-  overflow: hidden;
-  color: rgb(58, 58, 58);
-  animation: fadeBackground 3s linear;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	padding: 20px;
+	height: 100vh;
+	overflow: hidden;
+	color: rgb(58, 58, 58);
+	animation: fadeBackground 3s linear;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @keyframes fadeBackground {
-  0% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    z-index: -1;
-    background: transparent;
-    color: transparent;
-    opacity: 0;
-    display: none;
-  }
+	0% {
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		z-index: -1;
+		background: transparent;
+		color: transparent;
+		opacity: 0;
+		display: none;
+	}
 }
 .wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 50px;
-  align-items: center;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 50px;
+	align-items: center;
 }
 
 .button {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  width: 80vw;
-  text-align: center;
-  background: rgb(255, 255, 255);
-  border-radius: 10px;
-  padding: 2vw;
-  font-size: 8vw;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	width: 60vw;
+	text-align: center;
+	background: rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 2vw;
+	font-size: 6vw;
 }

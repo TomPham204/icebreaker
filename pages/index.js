@@ -13,30 +13,39 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Online icebreaker</title>
-        <meta name="description" content="Online icebreaker" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
+		<div className={styles.container}>
+			<Head>
+				<title>Online icebreaker</title>
+				<meta
+					name="description"
+					content="Online icebreaker"
+				/>
+				<link
+					rel="icon"
+					href="/favicon.png"
+				/>
+			</Head>
 
-      <main className={styles.main}>
-        {showWelcome && (
-          <h1 className={styles.title}>
-            Welcome to Online Icebreaker, designed by Tom Pham.
-          </h1>
-        )}
-        {showChoices && (
-          <div className={styles.wrapper}>
-            <Link href="/ten-questions">
-              <a className={styles.button}>10 Questions</a>
-            </Link>
-            <Link href="/">
-              <a className={styles.button}>To be added</a>
-            </Link>
-          </div>
-        )}
-      </main>
-    </div>
+			<main className={styles.main}>
+				{showWelcome && (
+					<h1 className={styles.title}>
+						Welcome to Online Icebreaker, designed by Tom Pham.
+					</h1>
+				)}
+				{showChoices && (
+					<div className={styles.wrapper}>
+						<Link href="/ten-questions">
+							<a className={styles.button}>10 Questions</a>
+						</Link>
+						<Link href="/guess-me">
+							<a className={styles.button}>Guess Me</a>
+						</Link>
+						<Link href="/">
+							<a className={styles.button}>To be added</a>
+						</Link>
+					</div>
+				)}
+			</main>
+		</div>
   );
 }
