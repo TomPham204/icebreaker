@@ -1,0 +1,26 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 100vh;
+	width: 100%;
+	background-color: rgb(255, 241, 205);
+}
+.imageWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 70%;
+	height: 40%;
+	position: relative;
+}
+.questionWrapper {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 30%;
+	height: 40%;
+	background: red;
+}
