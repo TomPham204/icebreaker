@@ -81,4 +81,5 @@ const primaryQuestions = [
 	"Ước mơ lúc nhỏ của bạn là gì?",
 	"Bạn thích mùa nào nhất trong một năm?",
 	"Bạn có xu hướng lo lắng/mất bình tĩnh vì những điều gì? (yếu tố bất ngờ, áp lực,...)",
+	"Bạn học được điều gì từ 1 mối quan hệ cũ?",
 ];
