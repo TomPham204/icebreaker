@@ -76,7 +76,7 @@ export async function getStaticProps() {
 }
 
 const primaryQuestions = [
-	"Nếu có thể hóa thân thành 1 con vật, bạn muốn làm con gì?",
+	"Nếu có thể hóa thân thành 1 con vật, bạn muốn trở thành con gì?",
 	"Bạn có đam mê hay sở thích nào không?",
 	"Thức uống yêu thích của bạn là gì?",
 	"Nếu được học thêm 1 kĩ năng bất kì thì bạn sẽ chọn kĩ năng nào?",
@@ -86,11 +86,12 @@ const primaryQuestions = [
 	"Điều gì thường bị bỏ qua mà bạn mong muốn người khác biết về bạn?",
 	"Điều thú vị nhất gần đây bạn học được là gì?",
 	"Bạn thích ngày nào nhất trong tuần?",
-	"Ba đặc điểm ở người khác phái mà bạn ấn tượng nhất.",
+	"Ba đặc điểm ở người khác phái mà bạn ấn tượng nhất?",
 	"Bạn có thích tự nấu ăn không?",
 	"Một điều bạn muốn thay đổi ở bản thân mình là gì?",
 	"Một điều bạn đã làm mà bạn cảm thấy tự hào nhất?",
 	"Bạn có thể chia sẻ 1 dự án bạn đang thực hiện?",
 	"Bạn có tin vào định mệnh hay may mắn không?",
 	"Bạn có bí mật nào mà bạn chưa từng chia sẻ với ai không?",
+	"Bạn đã học được điều gì từ 1 mối quan hệ cũ?",
 ];
