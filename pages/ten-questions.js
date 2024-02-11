@@ -3,49 +3,59 @@ import Link from "next/link";
 import styles from "../styles/TenQuestions.module.css";
 
 export default function Game(props) {
-	const [currentQuestion, setCurrentQuestion] = useState();
+	const [currentIndex, setCurrentIndex] = useState(0);
 	const [questionList, setQuestionList] = useState([]);
-	const [questionRotate, setQuestionRotate] = useState(false);
-	const [isMyTurn, setIsMyTurn] = useState(true);
-	const [answeredQuestions, setAnsweredQuestions] = useState([]);
+	const [questionRotateToPlayer, setQuestionRotateToPlayer] = useState(0);
+	const [player, setPlayer] = useState(0);
 	const [showNextButton, setShowNextButton] = useState(true);
 
 	useEffect(() => {
-		setQuestionList(props.primaryQuestions);
+		const randomizedQuestions = props.primaryQuestions.sort(
+			() => Math.random() - 0.5
+		);
+		setQuestionList([...randomizedQuestions, "The end"]);
 	}, [props.primaryQuestions]);
 
 	function handleClick() {
-		if (answeredQuestions.length === questionList.length) {
-			setCurrentQuestion("Hết rùi :3");
+		if (currentIndex >= questionList.length) {
 			setShowNextButton(false);
+			setCurrentIndex(questionList.length - 1);
+			setQuestionRotateToPlayer(1);
 			return;
 		}
-		let randomNumber = 0;
-		while (answeredQuestions.includes(randomNumber)) {
-			randomNumber = Math.floor(Math.random() * questionList.length);
-		}
-		setCurrentQuestion(questionList[randomNumber]);
-		setAnsweredQuestions([...answeredQuestions, randomNumber]);
-		setIsMyTurn(!isMyTurn);
-		setQuestionRotate(!isMyTurn);
+
+		const nextPlayer = 1 - player;
+
+		setCurrentIndex(currentIndex + 1);
+		setPlayer(nextPlayer);
+		setQuestionRotateToPlayer(nextPlayer);
+	}
+
+	function getRotateEffect() {
+		const random = (Math.floor(Math.random() * 10) % 2) + 1;
+		return questionRotateToPlayer == 1
+			? styles.question
+			: styles.question + " " + styles[`question_rotate_${random}`];
 	}
 
 	return (
 		<div className={styles.container}>
-			<h4 className={styles.count}>Count: {answeredQuestions.length}</h4>
-			<main className={styles.main}>
+			<div className={styles.main}>
 				<button
-					onClick={() => setQuestionRotate(!questionRotate)}
-					className={
-						questionRotate ? styles.buttonrotate : styles.button
+					onClick={() =>
+						setQuestionRotateToPlayer(1 - questionRotateToPlayer)
 					}
+					className={getRotateEffect()}
 				>
-					{currentQuestion}
+					{questionList[currentIndex]}
 				</button>
+
 				{showNextButton ? (
 					<button
 						onClick={handleClick}
-						className={isMyTurn ? styles.done : styles.donerotate}
+						className={
+							player == 0 ? styles.next : styles.next_rotate
+						}
 					>
 						Next question
 					</button>
@@ -54,7 +64,7 @@ export default function Game(props) {
 						<a className={styles.link}>Back to Home</a>
 					</Link>
 				)}
-			</main>
+			</div>
 		</div>
 	);
 }
@@ -66,19 +76,21 @@ export async function getStaticProps() {
 }
 
 const primaryQuestions = [
+	"Nếu có thể hóa thân thành 1 con vật, bạn muốn làm con gì?",
+	"Bạn có đam mê hay sở thích nào không?",
 	"Thức uống yêu thích của bạn là gì?",
-	"Nếu được học/bồi dưỡng 1 kĩ năng bất kì thì bạn sẽ chọn kĩ năng nào?",
-	"Kể tên 3 bài hát gần đây bạn hay nghe.",
-	"Kể tên 3 món ăn ưa thích của bạn.",
-	"Bạn có hoạt động ưa thích nào được làm trong thời gian rảnh?",
-	"Bạn có thể chia sẻ về lần gần nhất bạn học được 1 điều gì đó mới không? (kĩ năng, kinh nghiệm cuộc sống,...)",
+	"Nếu được học thêm 1 kĩ năng bất kì thì bạn sẽ chọn kĩ năng nào?",
+	"Bạn có nhóm nhạc ưa thích không?",
+	"Điều gì khiến bạn cảm thấy hạnh phúc nhất?",
+	"Kỷ niệm đáng nhớ nhất của bạn là gì?",
+	"Điều gì thường bị bỏ qua mà bạn mong muốn người khác biết về bạn?",
+	"Điều thú vị nhất gần đây bạn học được là gì?",
+	"Bạn thích ngày nào nhất trong tuần?",
 	"Ba đặc điểm ở người khác phái mà bạn ấn tượng nhất.",
-	"Bạn thích đi du lịch không? Nếu được chọn 1 nước bất kì, bạn sẽ đi đâu?",
-	"Bạn thích tự nấu ăn hay đi ăn ngoài hơn?",
-	"Nếu có siêu năng lực thì bạn sẽ chọn năng lực nào?",
-	"Nếu có thể hóa thân thành 1 con vật, bạn muốn làm con vật nào?",
-	"Nếu có một điều ước thì bạn sẽ dành điều ước đó cho ai?",
-	"Ước mơ lúc nhỏ của bạn là gì?",
-	"Bạn thích mùa nào nhất trong một năm?",
-	"Bạn có xu hướng lo lắng/mất bình tĩnh vì những điều gì? (yếu tố bất ngờ, áp lực,...)",
+	"Bạn có thích tự nấu ăn không?",
+	"Một điều bạn muốn thay đổi ở bản thân mình là gì?",
+	"Một điều bạn đã làm mà bạn cảm thấy tự hào nhất?",
+	"Bạn có thể chia sẻ 1 dự án bạn đang thực hiện?",
+	"Bạn có tin vào định mệnh hay may mắn không?",
+	"Bạn có bí mật nào mà bạn chưa từng chia sẻ với ai không?",
 ];
