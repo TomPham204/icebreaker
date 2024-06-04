@@ -94,4 +94,5 @@ const primaryQuestions = [
 	"Bạn có tin vào định mệnh hay may mắn không?",
 	"Bạn có bí mật nào mà bạn chưa từng chia sẻ với ai không?",
 	"Bạn đã học được điều gì từ 1 mối quan hệ cũ?",
+	"Kể về một lần bạn ứng xử làm cho cuộc trò chuyện trở nên gượng gạo.",
 ];
