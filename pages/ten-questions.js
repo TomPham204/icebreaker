@@ -95,4 +95,16 @@ const primaryQuestions = [
 	"Bạn có bí mật nào mà bạn chưa từng chia sẻ với ai không?",
 	"Bạn đã học được điều gì từ 1 mối quan hệ cũ?",
 	"Kể về một lần bạn ứng xử làm cho cuộc trò chuyện trở nên gượng gạo.",
+	"what’s one skill you would love to develop in your lifetime?",
+	"what’s something you think people get wrong about you?",
+	"what’s one topic you could talk about for hours?",
+	"what’s one thing you’ve changed your mind about recently? What made you see it differently?",
+	"what is one social cause you’re passionate about?",
+	"what’s one thing you wish more people cared about or talked about?",
+	"what’s one thing you think people care *too* much about?",
+	"what do you love most about yourself?",
+	"what are you willing to fight for, and why?",
+	"what’s one thing you would change about the way you were raised? What’s something you’d never change?",
+	"what cultural or moral values do you hold in high regard, and why?",
+	"what’s one thing you would *never* change your mind about?"
 ];
